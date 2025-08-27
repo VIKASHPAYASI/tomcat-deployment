@@ -1,5 +1,6 @@
 # tomcat-deployment
 
+
 A Spring Boot Maven Java project demonstrating how to deploy a Spring Boot application as a **WAR** file to an **external Apache Tomcat** server.
 
 ---
