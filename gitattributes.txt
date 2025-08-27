@@ -1,0 +1,16 @@
+# Enforce consistent line endings
+* text=auto
+
+# Java files
+*.java text eol=lf
+
+# XML and properties files
+*.xml text eol=lf
+*.properties text eol=lf
+
+# Shell scripts (if any)
+*.sh text eol=lf
+
+# Batch scripts (Windows)
+*.cmd text eol=crlf
+*.bat text eol=crlf
