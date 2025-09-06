@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 40px 32px;
+            text-align: center;
+            max-width: 900px;
+        }
+        h1 {
+            margin-bottom: 24px;
+            font-size: 2.2rem;
+            color: #333;
+        }
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .user-card {
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(102,166,255,0.15);
+            padding: 24px 32px;
+            min-width: 220px;
+            max-width: 260px;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .user-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(102,166,255,0.25);
+        }
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #66a6ff;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(102,166,255,0.12);
+        }
+        .user-id {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 6px;
+        }
+        .user-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+        }
+        .nav-btn {
+            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(67,233,123,0.15);
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            outline: none;
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .nav-btn:hover {
+            background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+            transform: translateY(-2px) scale(1.05);
+        }
+        @media (max-width: 700px) {
+            .container {
+                padding: 24px 8px;
+                max-width: 98vw;
+            }
+            .card-list {
+                gap: 16px;
+            }
+            .user-card {
+                min-width: 160px;
+                max-width: 98vw;
+                padding: 16px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Showcase</h1>
+        <div class="card-list">
+            <div class="user-card" th:each="user : ${users}">
+                <div class="avatar" th:text="${user.name.substring(0,1).toUpperCase()}"></div>
+                <div class="user-id">ID: <span th:text="${user.id}"></span></div>
+                <div class="user-name" th:text="${user.name}"></div>
+            </div>
+        </div>
+        <a href="home" class="nav-btn">Home</a>
+        <a href="about" class="nav-btn">About</a>
+    </div>
+</body>
+</html>
